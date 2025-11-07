@@ -18,8 +18,22 @@ void die() {
 	cout <<"You fuhed up...\n";
 	exit(0);
 }		
+bool hasItem(const vector<string>& inventory, const string& item) {
+    return find(inventory.begin(), inventory.end(), item) != inventory.end();
+}
+
+bool trySolvePuzzle(const vector<string>& inventory) {
+    if (hasItem(inventory, "mushroom") && hasItem(inventory, "leaf")) {
+        cout << "You combined mushroom and leaf to create a forest key!\n";
+        return true;
+    }
+    cout << "You don't have the right items yet.\n";
+    return false;
+}
 
 int main(){
+	vector<string> inventory;
+    string input;
 	for (int i = 0; i < 255; i++) {
        clearscreen();
        setbgcolor(61,94,44); 
