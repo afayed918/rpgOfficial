@@ -20,9 +20,9 @@ int main() {
 		clearscreen();
 		setbgcolor(0,0,255-i);
 		setcolor(i,0,0);
-		movecursor(i % 10,i % 30);
+		movecursor(20, i % 100);
 		//movecursor(0,0);
-		cout << "Welcome to the Spooky Door" << endl;
+		cout << "🦁" << endl;
 		usleep(100'000); //Pauses the program for 10'000 usec
 	}
 	cout << RESET;
