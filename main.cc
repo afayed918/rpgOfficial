@@ -65,23 +65,16 @@ int main(){
         cout << c << flush;
         usleep(100'000);
 	}
-	 clearscreen();
-        movecursor (30, 100);
-        cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
-        cout << "-                                                                                                                                                                                                   |";
+	
+	//Opens the input file name "worldmapping.txt"
+	ifstream inputFile("worldmapping.txt");
+	if (!inputFile.is_open()) {
+		cerr << "Error opening the file!" << endl;
+		return 0;
+	}
+	string maplines;
+	while (getline(inputFile, maplines)) {
+		cout << maplines << endl; //prints every line of the worlmapping text file
+	}
 }
 
