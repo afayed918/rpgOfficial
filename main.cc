@@ -1,5 +1,5 @@
 //Fill out this comment with your names and which bullet points you did
-//Partners:Moyinoluwa Oyinleye, 
+//Partners: Adam, Moyin, Nickolai, Jacob
 //Bullet Points: 
 //Extra Credit: 
 //URL to cover art and music: 
@@ -73,17 +73,20 @@ int main(){
 	string wC = "WELCOME " + usName + "!" ; // THis just makes typewriter effect
     for (char c : wC ) {
         cout << c << flush;
-        usleep(80'000);
-    }
+        usleep(100'000);
+	}
 	
-	movecursor (10, 90);
-	cout << "(1) Start Game" << endl;
-	movecursor (11, 90);
-	cout << "(2) Quit " << endl;
-	movecursor (13, 90);
-	cout << " ";
-	int hpChoice; // Home Page Choice
-	cin >> hpChoice;
+	//Opens the input file name "worldmapping.txt"
+	ifstream inputFile("worldmapping.txt");
+	if (!inputFile.is_open()) {
+		cerr << "Error opening the file!" << endl;
+		return 0;
+	}
+	string maplines;
+	while (getline(inputFile, maplines)) {
+		cout << maplines << endl; //prints every line of the worlmapping text file
+	}
+}
 
 	if (hpChoice == 1) {
 		int i = 0; 
