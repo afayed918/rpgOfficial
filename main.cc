@@ -179,6 +179,7 @@ int main() {
 		}
 	}
 
+	int hpChoice = 0;
 	if (hpChoice == 1) {
 		int i = 0;
 		for (i = 0; i < 101; i++) {
