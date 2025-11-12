@@ -4,9 +4,9 @@
 //Extra Credit:
 //URL to cover art and music:
 //Partners: Adam, Moyin, Nickolai, Jacob
-//Bullet Points: 
-//Extra Credit: 
-//URL to cover art and music: 
+//Bullet Points:
+//Extra Credit:
+//URL to cover art and music:
 #include "/public/read.h" // IWYU pragma: keep
 #include <stdexcept> // IWYU pragma: keep
 #include <vector> // IWYU pragma: keep
@@ -50,7 +50,7 @@ void print_world(size_t player_row, size_t player_col) {
 int main() {
 	const int ROWS = map;
 	const int COLS = map.();
-	int row = ROWS/2, col = COLS/2;
+	int row = ROWS / 2, col = COLS / 2;
 	string input;
 	for (int i = 0; i < 255; i++) {
 		clearscreen();
@@ -58,43 +58,73 @@ int main() {
 		usleep(100'000);
 		break;
 	}
-	movecursor(4, 40);
+	movecursor(4, 90);
 	setcolor(214, 214, 214);
 	setbgcolor(86, 125, 8);
-	string title = "JUNGLE JOURNEY";
-	movecursor (4, 90);
-	setcolor (214, 214, 214);
-	setbgcolor (86, 125, 8);
 	string title = "JUNGLE JOURNEY";// THis just makes typewriter effect
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
 	}
-	while(true){
+	while (true) {
 		int c = toupper(quick_read());
-        if (c == 'Q') break;
-        if (c == 'W' or c == UP_ARROW) row--;
-        if (c == 'S' or c == DOWN_ARROW) row++;
-        if (c == 'A' or c == LEFT_ARROW) col--;
-        if (c == 'D' or c == RIGHT_ARROW) col++;
-		for(size_t i = 0; i < map.size(); i++);{
-			for(size_t j = 0; i < map.at(0).size(); i++){
-				if(map.at(i).at(j) == "thingy"){
-					cout << "You just picked up thing\n";
-					cout << "Welcome to the next level\n";
+		if (c == 'Q') break;
+		if (c == 'W' || c == UP_ARROW) row--;
+		if (c == 'S' || c == DOWN_ARROW) row++;
+		if (c == 'A' || c == LEFT_ARROW) col--;
+		if (c == 'D' || c == RIGHT_ARROW) col++;
+
+		// Bounds check
+		row = max(0, min(row, ROWS - 1));
+		col = max(0, min(col, COLS - 1));
+
+		char location = map.at(row).at(col);
+
+		for (size_t i = 0; i < map.size(); i++) {
+			for (size_t j = 0; j < map.at(0).size(); j++) {
+				if (location == '?') {
+					cout << "Puzzle 1: What has keys but can't open doors?\n";
+					string answer;
+					getline(cin, answer);
+					if (answer == "keyboard") {
+						cout << "Correct! You solved Puzzle 1.\n";
+					} else {
+						die();
+					}
 				}
 
+				else if (location == '@') {
+					cout << "Puzzle 2: Solve this math: 12 + 8 * 2 = ?\n";
+					int response;
+					cin >> response;
+					if (response == 28) {
+						cout << "Nice! Puzzle 2 complete.\n";
+					} else {
+						die();
+					}
+				}
+
+				else if (location == '#') {
+					cout << "Puzzle 3: Enter the secret code (hint: it's 'JUNGLE'):\n";
+					string code;
+					getline(cin >> ws, code); // ws skips leading whitespace
+					if (code == "JUNGLE") {
+						cout << "You unlocked the final gate!\n";
+					} else {
+						die();
+					}
+				}
 			}
-	}
+		}
 	}
 	cout << endl;
 	cout << RESET;
 	/*for (int i = 0; i < 255; i++) {
 	   clearscreen();
 	   setbgcolor(61,94,44);
-	/*for (int i = 0; i < 255; i++) { // This is just something I grabbed from the
-       clearscreen();				// bunny demo to test out, i will delete it later prob.	
-       setbgcolor(61,94,44);
+	*for (int i = 0; i < 255; i++) { // This is just something I grabbed from the
+	   clearscreen();				// bunny demo to test out, i will delete it later prob.
+	   setbgcolor(61,94,44);
 	   setcolor(i,0,0);
 	    movecursor(i % 10,i % 30);
 
@@ -120,45 +150,45 @@ int main() {
 	for (char c : wC) {
 		cout << c << flush;
 		usleep(100'000);
-	movecursor (6, 83);
-	string peaUN = "PLEASE ENTER A USERNAME: ";// THis just makes typewriter effect
-	for (char c : peaUN) {
-        cout << c << flush;
-        usleep(100'000);
-    }
+		movecursor(6, 83);
+		string peaUN = "PLEASE ENTER A USERNAME: ";// THis just makes typewriter effect
+		for (char c : peaUN) {
+			cout << c << flush;
+			usleep(100'000);
+		}
 
-	getline (cin, usName);
-	
-	movecursor (7, 88);
-	string wC = "WELCOME " + usName + "!" ; // THis just makes typewriter effect
-    for (char c : wC ) {
-        cout << c << flush;
-        usleep(100'000);
+		getline(cin, usName);
+
+		movecursor(7, 88);
+		string wC = "WELCOME " + usName + "!" ; // THis just makes typewriter effect
+		for (char c : wC) {
+			cout << c << flush;
+			usleep(100'000);
+		}
+
+		//Opens the input file name "worldmapping.txt"
+		ifstream inputFile("worldmapping.txt");
+		if (!inputFile.is_open()) {
+			cerr << "Error opening the file!" << endl;
+			return 0;
+		}
+		string maplines;
+		while (getline(inputFile, maplines)) {
+			cout << maplines << endl; //prints every line of the worlmapping text file
+		}
 	}
-	
-	//Opens the input file name "worldmapping.txt"
-	ifstream inputFile("worldmapping.txt");
-	if (!inputFile.is_open()) {
-		cerr << "Error opening the file!" << endl;
-		return 0;
-	}
-	string maplines;
-	while (getline(inputFile, maplines)) {
-		cout << maplines << endl; //prints every line of the worlmapping text file
-	}
-}
 
 	if (hpChoice == 1) {
-		int i = 0; 
+		int i = 0;
 		for (i = 0; i < 101; i++) {
 			clearscreen();
 			setbgcolor(17, 71, 10);
-			movecursor (25, 95);
-			cout << i << "%" <<endl;
+			movecursor(25, 95);
+			cout << i << "%" << endl;
 			usleep(50'000);
 		}
 		clearscreen();
-		movecursor (30, 100);
+		movecursor(30, 100);
 		cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________";
 		cout << "-                                                                                                                                                                                                   |";
 		cout << "-                                                                                                                                                                                                   |";
@@ -176,12 +206,10 @@ int main() {
 		cout << "-                                                                                                                                                                                                   |";
 		cout << "-                                                                                                                                                                                                   |";
 		cout << "____________________________________________________________________________________________________________________________________________________________________________________________________|";
-	}
-	else if (hpChoice == 2) {
-		
-		return 0;	
-	}
-	else {
-	return 0;
+	} else if (hpChoice == 2) {
+
+		return 0;
+	} else {
+		return 0;
 	}
 }
