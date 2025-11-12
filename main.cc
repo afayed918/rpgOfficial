@@ -1,8 +1,8 @@
 //Fill out this comment with your names and which bullet points you did
-//Partners:Moyinoluwa Oyinleye, 
-//Bullet Points: 
-//Extra Credit: 
-//URL to cover art and music: 
+//Partners:Moyinoluwa Oyinleye,
+//Bullet Points:
+//Extra Credit:
+//URL to cover art and music:
 #include "/public/read.h" // IWYU pragma: keep
 #include <stdexcept> // IWYU pragma: keep
 #include <vector> // IWYU pragma: keep
@@ -15,69 +15,100 @@ using namespace std;
 
 
 void die() {
-	cout <<"You fuhed up...\n";
+	cout << "You fuhed up...\n";
 	exit(0);
-}		
-bool hasItem(const vector<string>& inventory, const string& item) {
-    return find(inventory.begin(), inventory.end(), item) != inventory.end();
+}
+/*char get_world_location(size_t row, size_t col) {
+	if (row >= world_map.size()) return ' ';
+	bridges_project_1   if (col >= world_map.at(row).size()) return ' ';
+	return world_map.at(row).at(col);
 }
 
-bool trySolvePuzzle(const vector<string>& inventory) {
-    if (hasItem(inventory, "mushroom") && hasItem(inventory, "leaf")) {
-        cout << "You combined mushroom and leaf to create a forest key!\n";
-        return true;
-    }
-    cout << "You don't have the right items yet.\n";
-    return false;
+void set_world_location(size_t row, size_t col, char c) {
+	if (row >= world_map.size()) return;
+	if (col >= world_map.at(row).size()) return;
+	world_map.at(row).at(col) = c;
 }
 
-int main(){
-	vector<string> inventory;
-    string input;
-	for (int i = 0; i < 255; i++) {
-       clearscreen();
-       setbgcolor(61,94,44); 
-	   usleep(100'000);
-	   break;
+void print_world(size_t player_row, size_t player_col) {
+	clearscreen();
+	movecursor(0, 0);
+	for (size_t row = 0; row < world_map.size(); row++) {
+		for (size_t col = 0; col < world_map.at(row).size(); col++) {
+			if (row == player_row and col == player_col) cout << "💩";
+			else
+				cout << world_map.at(row).at(col);
+		}
+		cout << endl;
 	}
-	movecursor (4, 40);
-	setcolor (214, 214, 214);
-	setbgcolor (86, 125, 8);
+}*/
+
+int main() {
+	const int ROWS = map;
+	const int COLS = map.();
+	int row = ROWS/2, col = COLS/2;
+	string input;
+	for (int i = 0; i < 255; i++) {
+		clearscreen();
+		setbgcolor(61, 94, 44);
+		usleep(100'000);
+		break;
+	}
+	movecursor(4, 40);
+	setcolor(214, 214, 214);
+	setbgcolor(86, 125, 8);
 	string title = "JUNGLE JOURNEY";
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
 	}
+	while(true){
+		int c = toupper(quick_read());
+        if (c == 'Q') break;
+        if (c == 'W' or c == UP_ARROW) row--;
+        if (c == 'S' or c == DOWN_ARROW) row++;
+        if (c == 'A' or c == LEFT_ARROW) col--;
+        if (c == 'D' or c == RIGHT_ARROW) col++;
+		for(size_t i = 0; i < map.size(); i++);{
+			for(size_t j = 0; i < map.at(0).size(); i++){
+				if(map.at(i).at(j) == "thingy"){
+					cout << "You just picked up thing\n";
+					cout << "Welcome to the next level\n";
+				}
+
+			}
+	}
+	}
 	cout << endl;
 	cout << RESET;
 	/*for (int i = 0; i < 255; i++) {
-       clearscreen();
-       setbgcolor(61,94,44);
+	   clearscreen();
+	   setbgcolor(61,94,44);
 	   setcolor(i,0,0);
-        movecursor(i % 10,i % 30);
-       
-       	usleep(100'000);
+	    movecursor(i % 10,i % 30);
+
+	   	usleep(100'000);
 	}
 	*/
 	string usName;
 	/*string wC = "WELCOME: " ;
 	for (char c : wC ) {
-        cout << c << flush;
-        usleep(100'000);
+	    cout << c << flush;
+	    usleep(100'000);
 	}
 	*/
-	movecursor (6, 33);
+	movecursor(6, 33);
 	string peaUN = "PLEASE ENTER A USERNAME: \n";
 	for (char c : peaUN) {
-        cout << c << flush;
-        usleep(100'000);
-    }
-	getline (cin, usName);
-		
-	string wC = "WELCOME " + usName + "!" ;
-    for (char c : wC ) {
-        cout << c << flush;
-        usleep(100'000);
-    }
+		cout << c << flush;
+		usleep(100'000);
+	}
+	getline(cin, usName);
+
+	string wC = "WELCOME " + usName + "!\n";
+	for (char c : wC) {
+		cout << c << flush;
+		usleep(100'000);
+	}
 }
 
