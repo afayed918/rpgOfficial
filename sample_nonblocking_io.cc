@@ -79,7 +79,8 @@ int main() {
 		}
 		if (get_world_location(row, col) == 'z') {
 			movecursor(ROWS+2,0);
-			cout << "YOU WIN!!!!!!!!!\n";string puzzle(size_t row, size_t col){
+			cout << "YOU WIN!!!!!!!!!\n";
+			string puzzle(size_t row, size_t col){
 			usleep(2'000'000);
 			break;
 		}
