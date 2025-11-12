@@ -1,0 +1,16 @@
+#include "/public/read.h" // IWYU pragma: keep
+#include <stdexcept> // IWYU pragma: keep
+#include <vector> // IWYU pragma: keep
+#include <algorithm> // IWYU pragma: keep
+#include <numeric> // IWYU pragma: keep
+#include <cmath>
+#include "/public/colors.h"
+#include <unistd.h>
+using namespace std;
+
+int main () {
+	cout <<
+	"_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________";
+	cout << " |
+	|;
+}
