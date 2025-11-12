@@ -24,7 +24,7 @@ vector<string> world_map = {
 
 char get_world_location(size_t row, size_t col) {
 	if (row >= world_map.size()) return ' ';
-	if (col >= world_map.at(row).size()) return ' ';
+bridges_project_1	if (col >= world_map.at(row).size()) return ' ';
 	return world_map.at(row).at(col);
 }
 
@@ -80,6 +80,7 @@ int main() {
 		if (get_world_location(row, col) == 'z') {
 			movecursor(ROWS+2,0);
 			cout << "YOU WIN!!!!!!!!!\n";
+			string puzzle(size_t row, size_t col){
 			usleep(2'000'000);
 			break;
 		}
