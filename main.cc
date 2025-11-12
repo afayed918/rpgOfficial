@@ -48,6 +48,7 @@ void print_world(size_t player_row, size_t player_col) {
 }*/
 
 int main() {
+	int map = 0;
 	const int ROWS = map;
 	const int COLS = map.();
 	int row = ROWS / 2, col = COLS / 2;
@@ -58,9 +59,10 @@ int main() {
 		usleep(100'000);
 		break;
 	}
-	movecursor(4, 90);
-	setcolor(214, 214, 214);
-	setbgcolor(86, 125, 8);
+	
+	movecursor (4, 90);
+	setcolor (214, 214, 214);
+	setbgcolor (86, 125, 8);
 	string title = "JUNGLE JOURNEY";// THis just makes typewriter effect
 	for (char c : title) {
 		cout << c << flush;
@@ -178,6 +180,7 @@ int main() {
 		}
 	}
 
+	int hpChoice = 0;
 	if (hpChoice == 1) {
 		int i = 0;
 		for (i = 0; i < 101; i++) {
@@ -187,6 +190,15 @@ int main() {
 			cout << i << "%" << endl;
 			usleep(50'000);
 		}
+		// TODO: Link to world map or combat scene after loading bar
+	//have to ask jacob about this because i wanna system("./combat") but he needs world map to appear first after loading screen **
+	}
+	else if (hpChoice == 2) {
+		
+		return 0;	
+	}
+	else {
+	return 0;
 		clearscreen();
 		movecursor(30, 100);
 		cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________";
