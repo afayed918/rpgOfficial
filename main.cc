@@ -48,6 +48,7 @@ void print_world(size_t player_row, size_t player_col) {
 }*/
 
 int main() {
+	int map = 0;
 	const int ROWS = map;
 	const int COLS = map.();
 	int row = ROWS / 2, col = COLS / 2;
