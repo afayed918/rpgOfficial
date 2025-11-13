@@ -4,8 +4,8 @@
 //Extra Credit:
 //URL to cover art and music:
 //Partners: Adam, Moyin, Nickolai, Jacob
-//Bullet Points:
-//Extra Credit:
+//Bullet Points: 
+//Extra Credit: 
 //URL to cover art and music:
 #include "/public/read.h" // IWYU pragma: keep
 #include <stdexcept> // IWYU pragma: keep
@@ -15,6 +15,7 @@
 #include <cmath>
 #include "/public/colors.h"
 #include <unistd.h>
+#include "world.h"
 using namespace std;
 
 
@@ -189,8 +190,9 @@ int main() {
 			cout << i << "%" << endl;
 			usleep(50'000);
 		}
-		// TODO: Link to world map or combat scene after loading bar
-	//have to ask jacob about this because i wanna system("./combat") but he needs world map to appear first after loading screen **
+		vector<string> map(MAX_SIZE, "");
+		init_map(map);
+		print_map(map);
 	}
 	else if (hpChoice == 2) {
 		

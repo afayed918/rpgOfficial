@@ -69,11 +69,3 @@ void load_map(vector<string> &map, string file){
 	}
 
 }
-
-int main() {
-	vector<string> map(MAX_SIZE, "");
-	init_map(map);
-	print_map(map);
-	//save_map(map, "file.txt");
-	//load_map(map, "file.txt");
-}
