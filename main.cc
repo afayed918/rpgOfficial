@@ -68,6 +68,15 @@ int main() {
 		cout << c << flush;
 		usleep(150'000);
 	}
+	//Introduction 
+	cout << "You wake up lying on damp jungle soil...\n";
+	cout << "The air is warm and thick, filled with the buzz of insects and the soft sway of branches above.\n";
+	cout << "Vines twist around ancient stone ruins nearby.\n";
+	cout << "After hours in the dirt, you wake up restless and in a daze.\n";
+	cout << "A distant roar echoes through the trees.\n";
+	cout << "You brush the dirt off your clothes and stand up.\n";
+	cout << "You need to find a way back to civilization.\n";
+	cout << endl;
 	while (true) {
 		int c = toupper(quick_read());
 		if (c == 'Q') break;
@@ -85,6 +94,9 @@ int main() {
 		for (size_t i = 0; i < map.size(); i++) {
 			for (size_t j = 0; j < map.at(0).size(); j++) {
 				if (location == '?') {
+					cout << "You push aside the vines...\n";
+					cout << "A wooden sign sits half buried in the dirt.\n";
+					cout << "Tiny leaves and roots have grown around the carved letters.\n";      //Shlight dialgoue 
 					cout << "Puzzle 1: What has keys but can't open doors?\n";
 					string answer;
 					getline(cin, answer);
@@ -96,6 +108,9 @@ int main() {
 				}
 
 				else if (location == '@') {
+					cout << "You step into a small clearing.\n";          
+					cout << "A cracked stone tablet stands in the center, covered in markings.\n";
+					cout << "The symbols seem to shift slightly as you get closer.\n";
 					cout << "Puzzle 2: Solve this math: 12 + 8 * 2 = ?\n";
 					int response;
 					cin >> response;
@@ -107,6 +122,9 @@ int main() {
 				}
 
 				else if (location == '#') {
+					cout << "You follow the sound of water until you reach a hidden waterfall.\n";       
+					cout << "Behind the falling water, you notice an old stone door covered in moss.\n";
+					cout << "Faded engravings on the door hint that it only opens to a spoken name.\n";
 					cout << "Puzzle 3: Enter the secret code (hint: it's 'JUNGLE'):\n";
 					string code;
 					getline(cin >> ws, code); // ws skips leading whitespace
