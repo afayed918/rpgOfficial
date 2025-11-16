@@ -4,14 +4,13 @@
 #include <stdexcept>
 using namespace std;
 
-const int MAX_SIZE = 20;
+const int MAX_SIZE = 43;
 const char VERT_WALL = '|';
 const char HORI_WALL = '_';
 const char EMPTY = '.';
 const char PLAYER = 'P';
 const char NPC = 'N';
 const char ANIMAL = 'A';
-const char WATER = '~';
 const char TREE = 'T';
 
 
@@ -29,11 +28,10 @@ void init_map(vector<string> &map) {
 			else {
 				//Randomly generated objects on the inside
 				int roll = rand() % 20;
-				if (roll >= 0 & roll <= 3) map.at(i).push_back(NPC);
-				if (roll == 4) map.at(i).push_back(WATER);
-				if (roll >= 5 & roll <= 12) map.at(i).push_back(EMPTY);
-				if (roll >= 13 & roll <= 15) map.at(i).push_back(ANIMAL);
-				if (roll >= 16 & roll <= 19) map.at(i).push_back(TREE);
+				if (roll >= 0 & roll <= 1) map.at(i).push_back(NPC);
+				if (roll >= 2 & roll <= 15) map.at(i).push_back(EMPTY);
+				if (roll >= 16 & roll <= 17) map.at(i).push_back(ANIMAL);
+				if (roll >= 18 & roll <= 19) map.at(i).push_back(TREE);
 			}
 		}
 	}
@@ -68,12 +66,4 @@ void load_map(vector<string> &map, string file){
 		map.push_back(s);
 	}
 
-}
-
-int main() {
-	vector<string> map(MAX_SIZE, "");
-	init_map(map);
-	print_map(map);
-	//save_map(map, "file.txt");
-	//load_map(map, "file.txt");
 }
