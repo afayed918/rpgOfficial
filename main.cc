@@ -59,66 +59,17 @@ int main() {
 		usleep(100'000);
 		break;
 	}
-	
-	movecursor (4, 90);
-	setcolor (214, 214, 214);
-	setbgcolor (86, 125, 8);
+
+	movecursor(4, 90);
+	setcolor(214, 214, 214);
+	setbgcolor(86, 125, 8);
 	string title = "JUNGLE JOURNEY";// THis just makes typewriter effect
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
 	}
-	while (true) {
-		int c = toupper(quick_read());
-		if (c == 'Q') break;
-		if (c == 'W' || c == UP_ARROW) row--;
-		if (c == 'S' || c == DOWN_ARROW) row++;
-		if (c == 'A' || c == LEFT_ARROW) col--;
-		if (c == 'D' || c == RIGHT_ARROW) col++;
-
-		// Bounds check
-		row = max(0, min(row, ROWS - 1));
-		col = max(0, min(col, COLS - 1));
-
-		char location = map.at(row).at(col);
-
-		for (size_t i = 0; i < map.size(); i++) {
-			for (size_t j = 0; j < map.at(0).size(); j++) {
-				if (location == '?') {
-					cout << "Puzzle 1: What has keys but can't open doors?\n";
-					string answer;
-					getline(cin, answer);
-					if (answer == "keyboard") {
-						cout << "Correct! You solved Puzzle 1.\n";
-					} else {
-						die();
-					}
-				}
-
-				else if (location == '@') {
-					cout << "Puzzle 2: Solve this math: 12 + 8 * 2 = ?\n";
-					int response;
-					cin >> response;
-					if (response == 28) {
-						cout << "Nice! Puzzle 2 complete.\n";
-					} else {
-						die();
-					}
-				}
-
-				else if (location == '#') {
-					cout << "Puzzle 3: Enter the secret code (hint: it's 'JUNGLE'):\n";
-					string code;
-					getline(cin >> ws, code); // ws skips leading whitespace
-					if (code == "JUNGLE") {
-						cout << "You unlocked the final gate!\n";
-					} else {
-						die();
-					}
-				}
-			}
-		}
-	}
+			
+		
 	cout << endl;
 	cout << RESET;
 	/*for (int i = 0; i < 255; i++) {
@@ -179,6 +130,59 @@ int main() {
 			cout << maplines << endl; //prints every line of the worlmapping text file
 		}
 	}
+	set_raw_mode(true);
+    show_cursor(false);
+	while (true) {
+        int c = toupper(quick_read());
+        if (c == 'Q') break;
+        if (c == 'W' || c == UP_ARROW) row--;
+        if (c == 'S' || c == DOWN_ARROW) row++;
+        if (c == 'A' || c == LEFT_ARROW) col--;
+        if (c == 'D' || c == RIGHT_ARROW) col++;
+
+        // Bounds check
+        row = max(0, min(row, ROWS - 1));
+        col = max(0, min(col, COLS - 1));
+
+        char location = map.at(row).at(col);
+
+        for (size_t i = 0; i < map.size(); i++) {
+            for (size_t j = 0; j < map.at(0).size(); j++) {
+                if (location == '?') {
+                    cout << "Puzzle 1: What has keys but can't open doors?\n";
+                    string answer;
+                    getline(cin, answer);
+                    if (answer == "keyboard") {
+                        cout << "Correct! You solved Puzzle 1.\n";
+                    } else {
+                        die();
+                    }
+                }
+
+                else if (location == '@') {
+                    cout << "Puzzle 2: Solve this math: 12 + 8 * 2 = ?\n";
+                    int response;
+                    cin >> response;
+                    if (response == 28) {
+                        cout << "Nice! Puzzle 2 complete.\n";
+                    } else {
+                        die();
+                    }
+                }
+
+                else if (location == '#') {
+                    cout << "Puzzle 3: Enter the secret code (hint: it's 'JUNGLE'):\n";
+                    string code;
+                    getline(cin >> ws, code); // ws skips leading whitespace
+                    if (code == "JUNGLE") {
+                        cout << "You unlocked the final gate!\n";
+                    } else {
+                        die();
+                    }
+                }
+            }
+        }
+    }
 
 	int hpChoice = 0;
 	if (hpChoice == 1) {
@@ -191,35 +195,13 @@ int main() {
 			usleep(50'000);
 		}
 		// TODO: Link to world map or combat scene after loading bar
-	//have to ask jacob about this because i wanna system("./combat") but he needs world map to appear first after loading screen **
-	}
-	else if (hpChoice == 2) {
-		
-		return 0;	
-	}
-	else {
-	return 0;
-		clearscreen();
-		movecursor(30, 100);
-		cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "____________________________________________________________________________________________________________________________________________________________________________________________________|";
+		//have to ask jacob about this because i wanna system("./combat") but he needs world map to appear first after loading screen **
 	} else if (hpChoice == 2) {
 
+		return 0;
+	} else {
+		return 0;
+	} else if (hpChoice == 2) {
 		return 0;
 	} else {
 		return 0;
