@@ -4,6 +4,7 @@
 #include <algorithm> // IWYU pragma: keep
 #include <numeric> // IWYU pragma: keep
 #include <cmath>
+#include <unistd.h>
 #include "/public/colors.h"
 #include <unistd.h>
 #include "explorer.h"
@@ -13,7 +14,7 @@ using namespace std;
 
 
 int main() {
-	
+ 	srand(time(NULL) + getpid());	
 	clearscreen();
 
 	Explorer explorer("Explorer");
@@ -52,7 +53,7 @@ int main() {
 			cout << "(3) RUN" << endl;
 		movecursor (18, 90);
 			cout << "";
-
+	
 
 	int tigChoice = 0; //decl
 	cin >> tigChoice;
@@ -62,7 +63,16 @@ int main() {
 		explorer.showHealth();
 
 		if (rand() % 2 == 0) {
-			cout << "The tiger slashes at you again... You died. :( " << endl;
+			cout << "The tiger slashes at you again, you take " << tiger.getStrength() << " damage!" << endl;
+			explorer.takeDamage(tiger.getStrength());
+			cout << "Make a choice: " << endl;
+			cout << "1) RUN" << endl;
+			cout << "2) CONTINUE FIGHT" << endl;
+			cin >> secTigChoice;
+			//continue this part in class
+			//ask about move cursor to center screen function
+        explorer.showHealth();
+		}
 		} else {
 			cout << "You got a lucky hit, the tiger flees into the darkness. :O " << endl;
 		}
