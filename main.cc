@@ -121,37 +121,6 @@ int main() {
 	}
 	cout << endl;
 	cout << RESET;
-	/*for (int i = 0; i < 255; i++) {
-	   clearscreen();
-	   setbgcolor(61,94,44);
-	*for (int i = 0; i < 255; i++) { // This is just something I grabbed from the
-	   clearscreen();				// bunny demo to test out, i will delete it later prob.
-	   setbgcolor(61,94,44);
-	   setcolor(i,0,0);
-	    movecursor(i % 10,i % 30);
-
-	   	usleep(100'000);
-	}
-	*/
-	string usName;
-	/*string wC = "WELCOME: " ;
-	for (char c : wC ) {
-	    cout << c << flush;
-	    usleep(100'000);
-	}
-	*/
-	movecursor(6, 33);
-	string peaUN = "PLEASE ENTER A USERNAME: \n";
-	for (char c : peaUN) {
-		cout << c << flush;
-		usleep(100'000);
-	}
-	getline(cin, usName);
-
-	string wC = "WELCOME " + usName + "!\n";
-	for (char c : wC) {
-		cout << c << flush;
-		usleep(100'000);
 		movecursor(6, 83);
 		string peaUN = "PLEASE ENTER A USERNAME: ";// THis just makes typewriter effect
 		for (char c : peaUN) {
