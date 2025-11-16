@@ -1,11 +1,7 @@
 //Fill out this comment with your names and which bullet points you did
-//Partners:Moyinoluwa Oyinleye,
-//Bullet Points:
-//Extra Credit:
-//URL to cover art and music:
 //Partners: Adam, Moyin, Nickolai, Jacob
-//Bullet Points:
-//Extra Credit:
+//Bullet Points: 
+//Extra Credit: 
 //URL to cover art and music:
 #include "/public/read.h" // IWYU pragma: keep
 #include <stdexcept> // IWYU pragma: keep
@@ -15,6 +11,7 @@
 #include <cmath>
 #include "/public/colors.h"
 #include <unistd.h>
+#include "world.h"
 using namespace std;
 
 
@@ -48,10 +45,9 @@ void print_world(size_t player_row, size_t player_col) {
 }*/
 
 int main() {
-	int map = 0;
-	const int ROWS = map;
-	const int COLS = map.();
-	int row = ROWS / 2, col = COLS / 2;
+//	const int ROWS = map;
+	//const int COLS = map.();
+//	int row = ROWS / 2, col = COLS / 2;
 	string input;
 	for (int i = 0; i < 255; i++) {
 		clearscreen();
@@ -67,7 +63,8 @@ int main() {
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
-	}
+	} 
+	/*
 	while (true) {
 		int c = toupper(quick_read());
 		if (c == 'Q') break;
@@ -119,68 +116,33 @@ int main() {
 			}
 		}
 	}
+*/	
 	cout << endl;
 	cout << RESET;
-	/*for (int i = 0; i < 255; i++) {
-	   clearscreen();
-	   setbgcolor(61,94,44);
-	*for (int i = 0; i < 255; i++) { // This is just something I grabbed from the
-	   clearscreen();				// bunny demo to test out, i will delete it later prob.
-	   setbgcolor(61,94,44);
-	   setcolor(i,0,0);
-	    movecursor(i % 10,i % 30);
-
-	   	usleep(100'000);
-	}
-	*/
 	string usName;
-	/*string wC = "WELCOME: " ;
-	for (char c : wC ) {
-	    cout << c << flush;
-	    usleep(100'000);
-	}
-	*/
-	movecursor(6, 33);
-	string peaUN = "PLEASE ENTER A USERNAME: \n";
+	movecursor(6, 83);
+	string peaUN = "PLEASE ENTER A USERNAME: ";
 	for (char c : peaUN) {
 		cout << c << flush;
 		usleep(100'000);
 	}
 	getline(cin, usName);
-
+	movecursor(7, 88);
 	string wC = "WELCOME " + usName + "!\n";
 	for (char c : wC) {
 		cout << c << flush;
-		usleep(100'000);
-		movecursor(6, 83);
-		string peaUN = "PLEASE ENTER A USERNAME: ";// THis just makes typewriter effect
-		for (char c : peaUN) {
-			cout << c << flush;
-			usleep(100'000);
-		}
-
-		getline(cin, usName);
-
-		movecursor(7, 88);
-		string wC = "WELCOME " + usName + "!" ; // THis just makes typewriter effect
-		for (char c : wC) {
-			cout << c << flush;
-			usleep(100'000);
-		}
-
-		//Opens the input file name "worldmapping.txt"
-		ifstream inputFile("worldmapping.txt");
-		if (!inputFile.is_open()) {
-			cerr << "Error opening the file!" << endl;
-			return 0;
-		}
-		string maplines;
-		while (getline(inputFile, maplines)) {
-			cout << maplines << endl; //prints every line of the worlmapping text file
-		}
+		usleep(80'000);
 	}
+	movecursor(10, 90);
+	cout << "(1) Start Game" << endl;
+	movecursor(11, 90);
+	cout << "(2) Quit" << endl;
+	movecursor (13, 90);
+	cout << " ";
 
 	int hpChoice = 0;
+	cin >> hpChoice;
+
 	if (hpChoice == 1) {
 		int i = 0;
 		for (i = 0; i < 101; i++) {
@@ -190,38 +152,17 @@ int main() {
 			cout << i << "%" << endl;
 			usleep(50'000);
 		}
-		// TODO: Link to world map or combat scene after loading bar
-	//have to ask jacob about this because i wanna system("./combat") but he needs world map to appear first after loading screen **
+		cout << RESET;
+		clearscreen();
+		vector<string> map(MAX_SIZE, "");
+		init_map(map);
+		print_map(map);
 	}
 	else if (hpChoice == 2) {
-		
-		return 0;	
-	}
-	else {
-	return 0;
-		clearscreen();
-		movecursor(30, 100);
-		cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "-                                                                                                                                                                                                   |";
-		cout << "____________________________________________________________________________________________________________________________________________________________________________________________________|";
-	} else if (hpChoice == 2) {
 
 		return 0;
-	} else {
+	}
+	else {
 		return 0;
 	}
 }
