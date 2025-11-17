@@ -12,6 +12,7 @@ public:
     Beast(string s, int str);
     string getSpecies() const;
     int getStrength() const;
+	 
 };
 #endif
 
