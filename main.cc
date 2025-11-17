@@ -154,7 +154,7 @@ int main() {
 		}
 		cout << RESET;
 		clearscreen();
-		vector<string> map(MAX_SIZE, "");
+		vector<string> map(MAX_HEIGHT, "");
 		init_map(map);
 		print_map(map);
 	}
