@@ -152,6 +152,8 @@ int main() {
 			cout << i << "%" << endl;
 			usleep(50'000);
 		}
+		
+
 		cout << RESET;
 		clearscreen();
 		vector<string> map(MAX_SIZE, "");

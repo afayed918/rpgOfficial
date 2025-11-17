@@ -14,7 +14,8 @@ public:
     Explorer(string n);
     void takeDamage(int dmg);
     void showHealth() const;
-    string getName() const;
+	void showHealthHearts() const;
+
 };
 #endif
 

@@ -18,5 +18,14 @@ void Explorer::showHealth() const {
     cout << RESET << endl;
 }
 
-string Explorer::getName() const { return name; }
+
+
+
+
+void Explorer::showHealthHearts() const {
+    for (int i = 0; i < health; i++) cout << "💗";
+}
+
+
+
 
