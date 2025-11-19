@@ -21,7 +21,35 @@ void die() {
 	exit(0);
 	usleep(2'000'000);
 }
+<<<<<<< HEAD
 
+=======
+/char get_world_location(size_t row, size_t col) {
+	if (row >= world_map.size()) return ' ';
+	bridges_project_1   if (col >= world_map.at(row).size()) return ' ';
+	return world_map.at(row).at(col);
+}
+
+void set_world_location(size_t row, size_t col, char c) {
+	if (row >= world_map.size()) return;
+	if (col >= world_map.at(row).size()) return;
+	world_map.at(row).at(col) = c;
+}
+
+void print_world(size_t player_row, size_t player_col) {
+	clearscreen();
+	movecursor(0, 0);
+	for (size_t row = 0; row < world_map.size(); row++) {
+		for (size_t col = 0; col < world_map.at(row).size(); col++) {
+			if (row == player_row and col == player_col) cout << "💩";
+			else
+				cout << world_map.at(row).at(col);
+		}
+		cout << endl;
+	}
+}*/
+/
+>>>>>>> nickolais_branch2
 int main() {
 //	const int ROWS = map;
 	//const int COLS = map.();
@@ -42,7 +70,7 @@ int main() {
 		cout << c << flush;
 		usleep(150'000);
 	} 
-	/*
+	/
 	while (true) {
 		int c = toupper(quick_read());
 		if (c == 'Q') break;
@@ -65,10 +93,14 @@ int main() {
 					getline(cin, answer);
 					if (answer == "keyboard") {
 						cout << "Correct! You solved Puzzle 1.\n";
+						cout 
+						<< "Not all guardians mean you harm.\n"
+						<< "Something here is watching you closely.\n"
+						<< "Observing.\n"; 
 					} else {
 						die();
 					}
-				}
+				} 
 
 				else if (location == '@') {
 					cout << "Puzzle 2: Solve this math: 12 + 8 * 2 = ?\n";
@@ -76,6 +108,9 @@ int main() {
 					cin >> response;
 					if (response == 28) {
 						cout << "Nice! Puzzle 2 complete.\n";
+						cout << "Another piece collected.\n"
+							<< "The pattern should be getting clearer.\n"
+							<< "Only one more stands between you and freedom.\n";
 					} else {
 						die();
 					}
@@ -87,14 +122,44 @@ int main() {
 					getline(cin >> ws, code); // ws skips leading whitespace
 					if (code == "JUNGLE") {
 						cout << "You unlocked the final gate!\n";
+						cout << "That's the last fragment.\n"
+							<< "Everything you need is now in your hands.\n"
+							<< "All that remains is to put it together.\n";
 					} else {
 						die();
 					}
 				}
+				cout << "The full message is almost complete.\n"
+					<< "Take a moment before you continue, once it's revealed there is no going back.\n"
+					<< "When you're ready, step forward to finish what you started.\n";
+
 			}
 		}
 	}
 */	
+	cout 
+	<< "Everything you've gathered forms the message you came here to find.\n"
+	<< "The pieces were never meant to stay seperated.\n"
+	<< "Now that they’re together, the meaning is clear.\n"
+    << "You’ve pushed through every obstacle placed in your way.\n"
+    << "Nothing about this journey was straightforward.\n"
+    << "But you kept going despite the confusion and setbacks.\n"
+    << "Most people would’ve stopped long before reaching this point.\n"
+    << "Finishing something difficult takes more than skill.\n"
+    << "It takes actual commitment to see it through.\n"
+    << "You’ve shown that in every step of this run.\n"
+    << "As the last fragment locks into place, the message stabilizes.\n"
+    << "There’s no more uncertainty in what comes next.\n"
+    << "You’ve earned the right to see the final result.\n"
+    << "Not because it was handed to you, but because you fought for it.\n"
+    << "This place has tested everything from patience to focus.\n"
+    << "And you pushed past all of it.\n"
+    << "The path ahead is open now.\n"
+    << "You’re free to move forward without anything holding you back.\n"
+    << "Whatever comes after this point is completely up to you.\n"
+    << "Take what you’ve learned here and use it.\n"
+    << "Not everyone makes it to the end.\n"
+    << "But you did, and that says enough on its own.\n";
 	cout << endl;
 	cout << RESET;
 	string usName;
@@ -185,7 +250,6 @@ int main() {
 		int startCol = col; // save the starting column
 
 		for (char c : begPuz) {
-
     	// Handle newline manually
     	if (c == '\n') {
         row++;          // next line
@@ -202,6 +266,10 @@ int main() {
 		}
 		
 		cout << endl;
+		cout << "Every fragment you seek was hidden for a reason.\n"
+			"Your journey will test more than your mind.\n"
+			"It will test your resolve.\n"
+			<< endl;
 		int toContinue = 0;
 		cout << RESET;
 		while(toContinue != 1) {
