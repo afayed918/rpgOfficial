@@ -55,7 +55,7 @@ void PuzzleGame::puzzles(int x){
     if(x == 4){
         clearscreen();
         movecursor(15, 50);
-        cout << "Puzzle 4: I slither silently, my hiss warns you, I might be venomous too. What am I?\n(answer in lowercase)";
+        cout << "Puzzle 4: I slither silently, my hiss warns you, I might be venomous too. What am I?(answer in lowercase)\n";
         string answer;
         getline(cin, answer);
         if(answer == "snake"){
