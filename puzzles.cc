@@ -13,26 +13,18 @@ void PuzzleGame::puzzles(int x){
 		cout << "For the puzzles you have to answer the riddles correctly, if you do you get a secrets letter that will help you unlock the final game!!!\n";
 		clearscreen();
 		movecursor(15, 50);
-<<<<<<< HEAD
 		cout << "Puzzle 1: Guess the animal!! The alphabet goes from A to Z but I go from Z to A (answer in all lowercase)\n";
-=======
-		cout << "Puzzle 1: Guess the animal!! The alphabet goes from A to Z but I go from Z to A(answer in lowercase)\n";
->>>>>>> de53277969e8e737189eb9906dfaf5e4f312497b
 		string answer;
 		getline(cin, answer);
 		if(answer == "zebra"){
-<<<<<<< HEAD
-			cout << "Good job, Your first key is the letters " << RED << "E G" << endl;
-=======
 			cout << "Good job, Your first key is the letters " << RED << "E G\n";
->>>>>>> de53277969e8e737189eb9906dfaf5e4f312497b
 			inventory.push_back("E G");
 		} else{
 			cout << "Unfortunately you got the question wrong!!\nBetter luck next time!!\n";
 			return;
 		}
 	}
-		if(x == 2){
+		if(x == 2){//This code and the rest of the code below, are written with the use of AI. I provided AI with the example abve and it wrote the rest of the code for me
         clearscreen();
         movecursor(15, 50);
         cout << "Puzzle 2: I swing through trees, I hoot and chatter, my tail helps me climb, what am I?(answer in lowercase)\n";
@@ -131,7 +123,7 @@ void PuzzleGame::finalGate() const{
 	string input;
 	getline(cin, input);
 	if(input == "GUARDIAN TEMPLE"){
-		clearscreen();
+		clearscreen();//This code and the rest of the code is coded with AI use
 movecursor(10, 50);
 cout << CYAN << "GOOOD JOB!! YOU GOT THE CODE RIGHT!!\n";
 usleep(500'000);
