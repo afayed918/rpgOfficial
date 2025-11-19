@@ -11,9 +11,10 @@ void PuzzleGame::puzzles(int x){
 		cout << "Welcome to the puzzles";
 		cout << "For the puzzles you have to answer the riddles correctly, if you do you get a secrets letter that will help you unlock the final game!!!\n";
 		clearscreen();
-		movecursor(25, 95);
+		movecursor(15, 50);
 		cout << "Puzzle 1: Guess the animal!! The alphabet goes from A to Z but I go from Z to A\n";
 		string answer;
+		cin.ignore();
 		getline(cin, answer);
 		if(answer == "zebra"){
 			cout << "Good job, Your first key is the letter " << RED << "E G\n";
@@ -22,9 +23,10 @@ void PuzzleGame::puzzles(int x){
 			cout << "Unfortunately you got the question wrong!!\nBetter luck next time!!\n";
 			return;
 		}
+	}
 		if(x == 2){
         clearscreen();
-        movecursor(25, 95);
+        movecursor(15, 50);
         cout << "Puzzle 2: I swing through trees, I hoot and chatter, my tail helps me climb, what am I?\n";
         string answer;
         getline(cin, answer);
@@ -38,7 +40,7 @@ void PuzzleGame::puzzles(int x){
     }
     if(x == 3){
         clearscreen();
-        movecursor(25, 95);
+        movecursor(15, 50);
         cout << "Puzzle 3: I have stripes but I’m not a shirt, I roar but I’m not a lion. Who am I?\n";
         string answer;
         getline(cin, answer);
@@ -52,7 +54,7 @@ void PuzzleGame::puzzles(int x){
     }
     if(x == 4){
         clearscreen();
-        movecursor(25, 95);
+        movecursor(15, 50);
         cout << "Puzzle 4: I slither silently, my hiss warns you, I might be venomous too. What am I?\n";
         string answer;
         getline(cin, answer);
@@ -66,7 +68,7 @@ void PuzzleGame::puzzles(int x){
     }
     if(x == 5){
         clearscreen();
-        movecursor(25, 95);
+        movecursor(15, 50);
         cout << "Puzzle 5: I’m big and gray, with ears that flap, I use my trunk to grab a snack. Who am I?\n";
         string answer;
         getline(cin, answer);
@@ -80,7 +82,7 @@ void PuzzleGame::puzzles(int x){
     }
     if(x == 6){
         clearscreen();
-        movecursor(25, 95);
+        movecursor(15, 50);
         cout << "Puzzle 6: I hang upside down and move real slow, in the jungle trees I go. What am I?\n";
         string answer;
         getline(cin, answer);
@@ -94,7 +96,7 @@ void PuzzleGame::puzzles(int x){
     }
     if(x == 7){
         clearscreen();
-        movecursor(25, 95);
+        movecursor(15, 50);
         cout << "Puzzle 7: I croak and leap, I love the rain, my skin is smooth, I’m not plain. What am I?\n";
         string answer;
         getline(cin, answer);
@@ -108,8 +110,10 @@ void PuzzleGame::puzzles(int x){
     }
 
 }
-}
+
 void PuzzleGame::finalGate() const{
+	clearscreen();
+	movecursor(15, 50);
 	cout << "The following letters are the the letters that you have collected throughout the game puzzles\n";
 	for(int i = 0; i < inventory.size(); i++){
 		cout << inventory.at(i) << " ";
@@ -119,7 +123,15 @@ void PuzzleGame::finalGate() const{
 	string input;
 	getline(cin, input);
 	if(input == "GUARDIAN TEMPLE"){
-		cout << "GOOOD JOB!! YOU GOT THE CODE RIGHT!!\nTHANK YOU FOR TUNING IN TO THE JUNGLE JOURNEY\n";
+		clearscreen();
+		movecursor(10, 50);
+		cout << CYAN << "GOOOD JOB!! YOU GOT THE CODE RIGHT!!\n";
+		clearscreen();
+		string c = "THANK YOU FOR TUNING IN TO THE JUNGLE JOURNEY";
+		movecursor(15, 50);
+		for(char t: c){
+			cout << MAGENTA << c << flush;
+		}
 	} else{
 		cout << "UNFORTUNATELY YOU DID NOT GET THE CODE RIGHT, MAYBE NEXT TIME\n";
 		return;

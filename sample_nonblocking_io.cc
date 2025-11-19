@@ -24,7 +24,7 @@ vector<string> world_map = {
 
 char get_world_location(size_t row, size_t col) {
 	if (row >= world_map.size()) return ' ';
-	bridges_project_1	if (col >= world_map.at(row).size()) return ' ';
+	if (col >= world_map.at(row).size()) return ' ';
 	return world_map.at(row).at(col);
 }
 
@@ -79,37 +79,38 @@ int main() {
 		}
 		if (get_world_location(row, col) == 'z') {
 			movecursor(ROWS + 2, 0);
-			cout << "YOU WIN!!!!!!!!!\n";
+			cout << "YOU WIN!!!!!!!!!\n";
 			string puzzle(size_t row, size_t col) {
 				usleep(2'000'000);
 				break;
 			}
 			if (c == ERR) usleep(1'000'000 / FPS);
 		}
-		set_raw_mode(false);
-		show_cursor(true);
-		movecursor(0, 0);
-		clearscreen();
-		/*
-		cout << "Please enter a row and column" << endl;
-		int row, col;
-		cin >> row >> col;
-		if (world_map.at(row).at(col) == '*') cout << "There is a wall there.\n";
-
-		//A vector is a data structure, "Something that holds multiple variables"
-		//Syntax: vector<type of thing to hold> name of the vector(size of the vector)
-		vector<int> help = {1,2,3,4,50};
-		//Print the contents of help:
-		for (int x : help) cout << x << endl;
-
-		//This just made 40 integers, within a vector named help
-		for (size_t i = 0; i < help.size(); i++) {
-			cout << "Please enter the value for help.at(" << i << ")\n";
-			cin >> help.at(i);
-		}
-		cout << "Here is the help vector!\n";
-		for (int x : help) {
-			cout << x << endl;
-		}
-		*/
 	}
+	set_raw_mode(false);
+	show_cursor(true);
+	movecursor(0, 0);
+	clearscreen();
+	/*
+	cout << "Please enter a row and column" << endl;
+	int row, col;
+	cin >> row >> col;
+	if (world_map.at(row).at(col) == '*') cout << "There is a wall there.\n";
+
+	//A vector is a data structure, "Something that holds multiple variables"
+	//Syntax: vector<type of thing to hold> name of the vector(size of the vector)
+	vector<int> help = {1,2,3,4,50};
+	//Print the contents of help:
+	for (int x : help) cout << x << endl;
+
+	//This just made 40 integers, within a vector named help
+	for (size_t i = 0; i < help.size(); i++) {
+		cout << "Please enter the value for help.at(" << i << ")\n";
+		cin >> help.at(i);
+	}
+	cout << "Here is the help vector!\n";
+	for (int x : help) {
+		cout << x << endl;
+	}
+	*/
+}

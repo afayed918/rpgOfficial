@@ -42,59 +42,6 @@ int main() {
 		cout << c << flush;
 		usleep(150'000);
 	} 
-	/*
-	while (true) {
-		int c = toupper(quick_read());
-		if (c == 'Q') break;
-		if (c == 'W' || c == UP_ARROW) row--;
-		if (c == 'S' || c == DOWN_ARROW) row++;
-		if (c == 'A' || c == LEFT_ARROW) col--;
-		if (c == 'D' || c == RIGHT_ARROW) col++;
-
-		// Bounds check
-		row = max(0, min(row, ROWS - 1));
-		col = max(0, min(col, COLS - 1));
-
-		char location = map.at(row).at(col);
-
-		for (size_t i = 0; i < map.size(); i++) {
-			for (size_t j = 0; j < map.at(0).size(); j++) {
-				if (location == '?') {
-					cout << "Puzzle 1: What has keys but can't open doors?\n";
-					string answer;
-					getline(cin, answer);
-					if (answer == "keyboard") {
-						cout << "Correct! You solved Puzzle 1.\n";
-					} else {
-						die();
-					}
-				}
-
-				else if (location == '@') {
-					cout << "Puzzle 2: Solve this math: 12 + 8 * 2 = ?\n";
-					int response;
-					cin >> response;
-					if (response == 28) {
-						cout << "Nice! Puzzle 2 complete.\n";
-					} else {
-						die();
-					}
-				}
-
-				else if (location == '#') {
-					cout << "Puzzle 3: Enter the secret code (hint: it's 'JUNGLE'):\n";
-					string code;
-					getline(cin >> ws, code); // ws skips leading whitespace
-					if (code == "JUNGLE") {
-						cout << "You unlocked the final gate!\n";
-					} else {
-						die();
-					}
-				}
-			}
-		}
-	}
-*/	
 	cout << endl;
 	cout << RESET;
 	string usName;
@@ -111,9 +58,6 @@ int main() {
 		cout << c << flush;
 		usleep(80'000);
 	}
-<<<<<<< HEAD
-	set_raw_mode(true);
-    show_cursor(false);
 	 movecursor(10, 90);
     cout << "(1) Start Game" << endl;
     movecursor(11, 90);
@@ -123,43 +67,7 @@ int main() {
 
     int hpChoice = 0;
     cin >> hpChoice;
-
-    if (hpChoice == 1) {
-        int i = 0;
-        for (i = 0; i < 101; i++) {
-            clearscreen();
-            setbgcolor(17, 71, 10);
-            movecursor(25, 95);
-            cout << i << "%" << endl;
-            usleep(50'000);
-        }
-
-        cout << RESET;
-        clearscreen();
-        vector<string> map(MAX_SIZE, "");
-        init_map(map);
-        print_map(map);
-    }
-    else if (hpChoice == 2) {
-=======
-	movecursor(10, 90);
-	cout << "(1) Start Game" << endl;
-	movecursor(11, 90);
-	cout << "(2) Quit" << endl;
-	movecursor (13, 90);
-	cout << " ";
->>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
-
-        return 0;
-    }
-    else {
-        return 0;
-    }
-
-<<<<<<< HEAD
-        
  
-=======
 	if (hpChoice == 1) {
 		int i = 0;
 		for (i = 0; i < 101; i++) {
@@ -209,14 +117,20 @@ int main() {
 		cout << "Press (1) to Continue: ";
 		cin >> toContinue;
 		if (toContinue == 1) { break; }
-		}
+		
 			
-
+		}
 		cout << RESET;
 		clearscreen();
 		vector<string> map(MAX_HEIGHT, "");
 		init_map(map);
 		print_map(map);
+		clearscreen();
+		PuzzleGame game;
+		game.puzzles(1);
+		game.puzzles(2);
+		game.finalGate();
+
 	}
 
 	else if (hpChoice == 2) {
@@ -226,5 +140,5 @@ int main() {
 	else {
 		return 0;
 	}
->>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 }
+
