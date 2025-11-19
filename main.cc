@@ -12,37 +12,15 @@
 #include "/public/colors.h"
 #include <unistd.h>
 #include "world.h"
+#include "puzzles.h"
 using namespace std;
 
 
 void die() {
 	cout << "You fuhed up...\n";
 	exit(0);
+	usleep(2'000'000);
 }
-/*char get_world_location(size_t row, size_t col) {
-	if (row >= world_map.size()) return ' ';
-	bridges_project_1   if (col >= world_map.at(row).size()) return ' ';
-	return world_map.at(row).at(col);
-}
-
-void set_world_location(size_t row, size_t col, char c) {
-	if (row >= world_map.size()) return;
-	if (col >= world_map.at(row).size()) return;
-	world_map.at(row).at(col) = c;
-}
-
-void print_world(size_t player_row, size_t player_col) {
-	clearscreen();
-	movecursor(0, 0);
-	for (size_t row = 0; row < world_map.size(); row++) {
-		for (size_t col = 0; col < world_map.at(row).size(); col++) {
-			if (row == player_row and col == player_col) cout << "💩";
-			else
-				cout << world_map.at(row).at(col);
-		}
-		cout << endl;
-	}
-}*/
 
 int main() {
 //	const int ROWS = map;
@@ -133,16 +111,55 @@ int main() {
 		cout << c << flush;
 		usleep(80'000);
 	}
+<<<<<<< HEAD
+	set_raw_mode(true);
+    show_cursor(false);
+	 movecursor(10, 90);
+    cout << "(1) Start Game" << endl;
+    movecursor(11, 90);
+    cout << "(2) Quit" << endl;
+    movecursor (13, 90);
+    cout << " ";
+
+    int hpChoice = 0;
+    cin >> hpChoice;
+
+    if (hpChoice == 1) {
+        int i = 0;
+        for (i = 0; i < 101; i++) {
+            clearscreen();
+            setbgcolor(17, 71, 10);
+            movecursor(25, 95);
+            cout << i << "%" << endl;
+            usleep(50'000);
+        }
+
+        cout << RESET;
+        clearscreen();
+        vector<string> map(MAX_SIZE, "");
+        init_map(map);
+        print_map(map);
+    }
+    else if (hpChoice == 2) {
+=======
 	movecursor(10, 90);
 	cout << "(1) Start Game" << endl;
 	movecursor(11, 90);
 	cout << "(2) Quit" << endl;
 	movecursor (13, 90);
 	cout << " ";
+>>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 
-	int hpChoice = 0;
-	cin >> hpChoice;
+        return 0;
+    }
+    else {
+        return 0;
+    }
 
+<<<<<<< HEAD
+        
+ 
+=======
 	if (hpChoice == 1) {
 		int i = 0;
 		for (i = 0; i < 101; i++) {
@@ -209,4 +226,5 @@ int main() {
 	else {
 		return 0;
 	}
+>>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 }

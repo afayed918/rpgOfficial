@@ -157,12 +157,16 @@ bool enemyMove(){
 }
 
 int main() {
+<<<<<<< HEAD
+	srand(time(NULL) + getpid());
+=======
 	//srand(1);
 	srand(time(NULL));	
+>>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 	clearscreen();
 
 	Explorer explorer("Explorer");
-	Beast tiger("Bengal Tiger" , 2);
+	Beast tiger("Bengal Tiger", 2);
 	explorer.showHealth();
 
 
@@ -191,6 +195,37 @@ int main() {
 	cout << "(2) HIDE" << endl;
 	movecursor(17, 90);
 
+<<<<<<< HEAD
+
+	for (int i = 0; i < 100; i++) {
+		clearscreen();
+		movecursor(20, i % 100);
+		setcolor(255, 119, 0);
+		cout << "🐯" << endl;
+		usleep(35'000);
+	}
+
+
+
+
+	setcolor(255, 52, 0);
+	setbgcolor(235, 235, 235);
+	movecursor(10, 90);
+	cout << "𝗔𝗛𝗛𝗛 𝗔 𝗧𝗜𝗚𝗘𝗥!!!" << endl;
+	cout << RESET;
+	movecursor(15, 90);
+	cout << "(1) FIGHT" << endl;
+	movecursor(16, 90);
+	cout << "(2) HIDE" << endl;
+	movecursor(17, 90);
+	cout << "(3) RUN" << endl;
+	movecursor(18, 90);
+	cout << "";
+
+
+	int tigChoice = 0; //decl
+	cin >> tigChoice;
+=======
 	cout << "(3) RUN" << endl;
 	movecursor (18, 90);
 	cout << "";
@@ -201,6 +236,7 @@ int main() {
 	cin >> tigChoice;
 
 
+>>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 	if (tigChoice == 1) {
 		cout << "You swing your machete but take " << tiger.getStrength() << " damage!" << endl;
 		
@@ -229,12 +265,25 @@ int main() {
 			}
 			//continue this part in class
 			//ask about move cursor to center screen function
+<<<<<<< HEAD
+			explorer.showHealth();
+=======
 			
 		}
 		else {	
 			cout << "You got a lucky hit, the tiger flees into the darkness. :O " << endl;
+>>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 		}
+	} else {
+		cout << "You got a lucky hit, the tiger flees into the darkness. :O " << endl;
 	}
+<<<<<<< HEAD
+} else if (tigChoice == 2) {
+	cout << "You hiding dood" << endl;
+} else if (tigChoice == 3) {
+	cout << "You ran away" << endl;
+}
+=======
 	
 
 	//__RUN____
@@ -245,6 +294,7 @@ int main() {
 	else if (tigChoice == 3) {
 		run_from_tiger(explorer);
 	}
+>>>>>>> f329c00cdde33edc6afbe1d144221b3b7d27d9f3
 
 }
 
