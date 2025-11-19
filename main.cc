@@ -12,6 +12,8 @@
 #include "/public/colors.h"
 #include <unistd.h>
 #include "world.h"
+#include "encounter.h"
+#include "combat.h"
 #include "puzzles.h"
 using namespace std;
 
@@ -23,10 +25,21 @@ void die() {
 }
 
 int main() {
-//	const int ROWS = map;
-	//const int COLS = map.();
-//	int row = ROWS / 2, col = COLS / 2;
+
+	Explorer explorer("Explorer");
+
+	Beast tiger("Bengal Tiger", 2);
+	Beast snake("Elder Serpent", 1);
+	Beast gorilla("Silverback Gorilla", 3);
+	Beast monkey("Mr. Monkey", 1);
+	Beast loracks("Looraks", 2);
+
+
+
 	string input;
+
+	
+
 	for (int i = 0; i < 255; i++) {
 		clearscreen();
 		setbgcolor(61, 94, 44);
@@ -41,7 +54,11 @@ int main() {
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
-	} 	 
+
+	} 
+
+
+
 	cout << endl;
 	cout << RESET;
 	string usName;
@@ -51,6 +68,7 @@ int main() {
 		cout << c << flush;
 		usleep(100'000);
 	}
+
 	getline(cin, usName);
 	movecursor(7, 88);
 	string wC = "WELCOME " + usName + "!\n";

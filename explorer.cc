@@ -3,8 +3,8 @@
 #include "/public/colors.h"
 using namespace std;
 
-Explorer::Explorer(string n) : name(n), health(6) {
-    for (int i = 0; i < 6; i++) hearts.push_back("💗");
+Explorer::Explorer(string n) : name(n), health(10) {
+    for (int i = 0; i < 10; i++) hearts.push_back("💗");
 }
 
 void Explorer::takeDamage(int dmg) {
@@ -19,7 +19,9 @@ void Explorer::showHealth() const {
 }
 
 
-
+bool Explorer::isDead() const {
+    return (health <= 0);
+}
 
 
 void Explorer::showHealthHearts() const {

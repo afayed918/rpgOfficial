@@ -16,6 +16,9 @@ public:
     void showHealth() const;
 	void showHealthHearts() const;
 
+	bool isDead() const;
+
+
 };
 #endif
 
