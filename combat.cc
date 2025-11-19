@@ -213,6 +213,13 @@ void tigerFight(Explorer &explorer, Beast &tiger) {
 
     clearscreen();
     drawBattleScreen(explorer, tiger);
+	srand(time(NULL));
+	clearscreen();
+
+	Explorer explorer("Explorer");
+	Beast tiger("Bengal Tiger", 2);
+	explorer.showHealth();
+
 
     movecursor(row++, col);
     cout << "The tiger snarls and prepares to strike..." << endl;
@@ -400,6 +407,35 @@ void gorillaFight(Explorer &explorer, Beast &gorilla) {
     movecursor(row++, col);
 	cout << "3) Threaten him" << endl;
 	movecursor(row++, col);	
+
+	for (int i = 0; i < 100; i++) {
+		clearscreen();
+		movecursor(20, i % 100);
+		setcolor(255, 119, 0);
+		cout << "🐯" << endl;
+		usleep(35'000);
+	}
+
+
+
+
+	setcolor(255, 52, 0);
+	setbgcolor(235, 235, 235);
+	movecursor(10, 90);
+	cout << "𝗔𝗛𝗛𝗛 𝗔 𝗧𝗜𝗚𝗘𝗥!!!" << endl;
+	cout << RESET;
+	movecursor(15, 90);
+	cout << "(1) FIGHT" << endl;
+	movecursor(16, 90);
+	cout << "(2) HIDE" << endl;
+	movecursor(17, 90);
+	cout << "(3) RUN" << endl;
+	movecursor(18, 90);
+	cout << "";
+
+
+	int tigChoice = 0; //decl
+	cin >> tigChoice;
 	cout << "";
 
     int choice;
@@ -412,6 +448,7 @@ void gorillaFight(Explorer &explorer, Beast &gorilla) {
 		int row = 10;
     	int col = 120;
         clearscreen();
+
 		
 		movecursor(row++, col);
         cout << "You remain perfectly still..." << endl;
@@ -689,6 +726,9 @@ void looraksFight(Explorer &explorer, Beast &loracks) {
 	clearscreen();
 	int row = 10;
 	int col = 120;
+			explorer.showHealth();
+		}
+	 
 	
 	movecursor(row++, col);
 	cout << "The air thickens with glowing green mist..." << endl;
@@ -837,6 +877,7 @@ void looraksFight(Explorer &explorer, Beast &loracks) {
 
     return;
 	}
+
 
 }
 
