@@ -200,6 +200,10 @@ void drawBattleScreen(const Explorer &explorer, const Beast &tiger) {
     }
 
 
+
+
+
+
 bool enemyMove(){
 	int roll = 2;//rand() % 4;
 	if(roll) return true; //Hit explorer
