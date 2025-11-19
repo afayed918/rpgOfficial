@@ -14,11 +14,11 @@ using namespace std;
 
 
 int main() {
- 	srand(time(NULL) + getpid());	
+	srand(time(NULL) + getpid());
 	clearscreen();
 
 	Explorer explorer("Explorer");
-	Beast tiger("Bengal Tiger" , 2);
+	Beast tiger("Bengal Tiger", 2);
 	explorer.showHealth();
 
 
@@ -30,34 +30,34 @@ int main() {
 
 
 	for (int i = 0; i < 100; i++) {
-    	    clearscreen();
-        	movecursor(20, i % 100);
-			setcolor(255, 119, 0);
-        	cout << "🐯" << endl;
-        	usleep(35'000);
-			}
-	
+		clearscreen();
+		movecursor(20, i % 100);
+		setcolor(255, 119, 0);
+		cout << "🐯" << endl;
+		usleep(35'000);
+	}
 
 
 
-		setcolor(255,52,0);
-		setbgcolor(235,235,235);
-		movecursor(10, 90);
-			cout << "𝗔𝗛𝗛𝗛 𝗔 𝗧𝗜𝗚𝗘𝗥!!!" << endl;
-			cout << RESET;
-		movecursor(15, 90);
-			cout << "(1) FIGHT" << endl;
-		movecursor(16, 90);
-			cout << "(2) HIDE" << endl;
-		movecursor(17, 90);
-			cout << "(3) RUN" << endl;
-		movecursor (18, 90);
-			cout << "";
-	
+
+	setcolor(255, 52, 0);
+	setbgcolor(235, 235, 235);
+	movecursor(10, 90);
+	cout << "𝗔𝗛𝗛𝗛 𝗔 𝗧𝗜𝗚𝗘𝗥!!!" << endl;
+	cout << RESET;
+	movecursor(15, 90);
+	cout << "(1) FIGHT" << endl;
+	movecursor(16, 90);
+	cout << "(2) HIDE" << endl;
+	movecursor(17, 90);
+	cout << "(3) RUN" << endl;
+	movecursor(18, 90);
+	cout << "";
+
 
 	int tigChoice = 0; //decl
 	cin >> tigChoice;
-		if (tigChoice == 1) {
+	if (tigChoice == 1) {
 		cout << "You swing your machete but take " << tiger.getStrength() << " damage!" << endl;
 		explorer.takeDamage(tiger.getStrength());
 		explorer.showHealth();
@@ -71,17 +71,15 @@ int main() {
 			cin >> secTigChoice;
 			//continue this part in class
 			//ask about move cursor to center screen function
-        explorer.showHealth();
+			explorer.showHealth();
 		}
-		} else {
-			cout << "You got a lucky hit, the tiger flees into the darkness. :O " << endl;
-		}
+	} else {
+		cout << "You got a lucky hit, the tiger flees into the darkness. :O " << endl;
 	}
-		else if (tigChoice == 2) {
-			cout << "You hiding dood" << endl;
-		}
-		else if (tigChoice == 3) {
-			cout << "You ran away" << endl;
-		}
-	
+} else if (tigChoice == 2) {
+	cout << "You hiding dood" << endl;
+} else if (tigChoice == 3) {
+	cout << "You ran away" << endl;
+}
+
 }
