@@ -150,9 +150,50 @@ int main() {
 			setbgcolor(17, 71, 10);
 			movecursor(25, 95);
 			cout << i << "%" << endl;
-			usleep(50'000);
+			usleep(20'000);
+		}
+		cout << RESET;
+		clearscreen();
+		string begPuz = "Long ago, this land held a single truth...\n"
+						"A message so important it was shattered into pieces\n"
+						"and hidden across the realm.\n"
+						"\n"
+						"Each puzzle you face guards one fragment.\n"
+						"Gather the letters.\n"
+						"Reassemble the truth.\n"
+						"\n"
+						"Only then will you understand why you were brought here.";
+		int row = 15;
+		int col = 75;
+		int startCol = col; // save the starting column
+
+		for (char c : begPuz) {
+
+    	// Handle newline manually
+    	if (c == '\n') {
+        row++;          // next line
+        col = startCol; // reset to beginning of line
+        continue;       // skip printing this char
+    	}
+
+    	movecursor(row, col);
+    	cout << c << flush;
+
+    	col++; // move to next horizontal position
+
+    	usleep(75'000);
 		}
 		
+		cout << endl;
+		int toContinue = 0;
+		cout << RESET;
+		while(toContinue != 1) {
+		movecursor(30, 85);
+		cout << "Press (1) to Continue: ";
+		cin >> toContinue;
+		if (toContinue == 1) { break; }
+		}
+			
 
 		cout << RESET;
 		clearscreen();
@@ -160,6 +201,7 @@ int main() {
 		init_map(map);
 		print_map(map);
 	}
+
 	else if (hpChoice == 2) {
 
 		return 0;
