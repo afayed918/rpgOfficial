@@ -123,10 +123,66 @@ int main() {
 		
 			
 		}
+		clearscreen();
+movecursor(15, 75);
+string intro = "You awaken beneath a canopy of emerald leaves...\n"
+               "The air is thick with mystery, and the jungle whispers your name.\n"
+               "A voice echoes from the shadows...\n";
+for (char c : intro) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
+
+row += 2; col = startCol;
+string voice = "\"Traveler... the jungle has chosen you.\"\n"
+               "\"Seven trials await. Each puzzle holds a fragment of truth.\"\n"
+               "\"But beware... not all paths are kind.\"\n";
+for (char c : voice) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
+
+row += 2; col = startCol;
+string guide = "A glowing figure steps forward — cloaked in vines, eyes like fireflies.\n"
+               "\"I am your guide. I cannot solve the puzzles for you, but I will walk beside you.\"\n"
+               "\"Speak wisely. Listen deeply. The jungle rewards the curious.\"\n";
+for (char c : guide) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
+
+row += 2; col = startCol;
+string prompt = "\"Are you ready to begin your journey, " + usName + "?\"\n"
+                "Press (1) to begin your first trial.\n"
+                "Press (2) to return to the safety of the camp.\n";
+for (char c : prompt) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
 		cout << RESET;
 		clearscreen();
+<<<<<<< HEAD
 		run_world();
 		PuzzleGame game;
+=======
+		vector<string> map(MAX_HEIGHT, "");
+		init_map(map);
+		print_map(map);
+		clearscreen();
+
+>>>>>>> de53277969e8e737189eb9906dfaf5e4f312497b
 	}
 
 	else if (hpChoice == 2) {
