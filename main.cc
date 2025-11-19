@@ -1,8 +1,8 @@
 //Fill out this comment with your names and which bullet points you did
 //Partners: Adam, Moyin, Nickolai, Jacob
 //Bullet Points: 
-//Extra Credit: 
-//URL to cover art and music:
+//Extra Credit: Nickolai
+//URL to cover art and music: https://musescore.com/user/111677018/scores/29522567?share=copy_link
 #include "/public/read.h" // IWYU pragma: keep
 #include <stdexcept> // IWYU pragma: keep
 #include <vector> // IWYU pragma: keep
