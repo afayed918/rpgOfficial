@@ -14,15 +14,15 @@
 #include "world.h"
 #include "encounter.h"
 #include "combat.h"
+#include "puzzles.h"
 using namespace std;
 
 
 void die() {
 	cout << "You fuhed up...\n";
 	exit(0);
+	usleep(2'000'000);
 }
-
-
 
 int main() {
 
@@ -54,6 +54,7 @@ int main() {
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
+
 	} 
 
 
@@ -75,16 +76,16 @@ int main() {
 		cout << c << flush;
 		usleep(80'000);
 	}
-	movecursor(10, 90);
-	cout << "(1) Start Game" << endl;
-	movecursor(11, 90);
-	cout << "(2) Quit" << endl;
-	movecursor (13, 90);
-	cout << " ";
+	 movecursor(10, 90);
+    cout << "(1) Start Game" << endl;
+    movecursor(11, 90);
+    cout << "(2) Quit" << endl;
+    movecursor (13, 90);
+    cout << " ";
 
-	int hpChoice = 0;
-	cin >> hpChoice;
-
+    int hpChoice = 0;
+    cin >> hpChoice;
+ 
 	if (hpChoice == 1) {
 		int i = 0;
 		for (i = 0; i < 101; i++) {
@@ -110,7 +111,6 @@ int main() {
 		int startCol = col; // save the starting column
 
 		for (char c : begPuz) {
-
     	// Handle newline manually
     	if (c == '\n') {
         row++;          // next line
@@ -127,6 +127,10 @@ int main() {
 		}
 		
 		cout << endl;
+		cout << "Every fragment you seek was hidden for a reason.\n"
+			"Your journey will test more than your mind.\n"
+			"It will test your resolve.\n"
+			<< endl;
 		int toContinue = 0;
 		cout << RESET;
 		while(toContinue != 1) {
@@ -134,14 +138,60 @@ int main() {
 		cout << "Press (1) to Continue: ";
 		cin >> toContinue;
 		if (toContinue == 1) { break; }
-		}
+		
 			
+		}
+		clearscreen();
+movecursor(15, 75);// The dialogue written below is with the use of AI
+string intro = "You awaken beneath a canopy of emerald leaves...\n"
+               "The air is thick with mystery, and the jungle whispers your name.\n"
+               "A voice echoes from the shadows...\n";
+for (char c : intro) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
 
+row += 2; col = startCol;
+string voice = "\"Traveler... the jungle has chosen you.\"\n"
+               "\"Seven trials await. Each puzzle holds a fragment of truth.\"\n"
+               "\"But beware... not all paths are kind.\"\n";
+for (char c : voice) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
+
+row += 2; col = startCol;
+string guide = "A glowing figure steps forward — cloaked in vines, eyes like fireflies.\n"
+               "\"I am your guide. I cannot solve the puzzles for you, but I will walk beside you.\"\n"
+               "\"Speak wisely. Listen deeply. The jungle rewards the curious.\"\n";
+for (char c : guide) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
+
+row += 2; col = startCol;
+string prompt = "\"Are you ready to begin your journey, " + usName + "?\"\n"
+                "Press (1) to begin your first trial.\n"
+                "Press (2) to return to the safety of the camp.\n";
+for (char c : prompt) {
+    if (c == '\n') { row++; col = startCol; continue; }
+    movecursor(row, col);
+    cout << c << flush;
+    col++;
+    usleep(75'000);
+}
 		cout << RESET;
 		clearscreen();
-		vector<string> map(MAX_SIZE, "");
-		init_map(map);
-		print_map(map);
+		run_world();
 	}
 
 	else if (hpChoice == 2) {
@@ -152,3 +202,4 @@ int main() {
 		return 0;
 	}
 }
+

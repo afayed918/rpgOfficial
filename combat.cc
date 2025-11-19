@@ -860,21 +860,24 @@ bool startCombat(Explorer&explorer,
 }
 
 int main() {
-	srand(time(NULL));	
-	clearscreen();
+srand(time(NULL));
+    clearscreen();
 
-	Explorer explorer("Explorer");
-	Beast tiger("Bengal Tiger" , 2);
-	Beast snake("Elder Serpent" , 1);
-	Beast gorilla("Silverback Gorilla", 3);
-	Beast monkey("Mr. Monkey", 1);	
-	Beast loracks("Looraks" , 2);
-	explorer.showHealth();
+    Explorer explorer("Explorer");
+
+    Beast tiger("Bengal Tiger", 2);
+    Beast snake("Elder Serpent", 1);
+    Beast gorilla("Silverback Gorilla", 3);
+    Beast monkey("Mr. Monkey", 1);
+    Beast loracks("Looraks", 2);
+
+    explorer.showHealth();
+
+    // Temp to test combat, change later
+    looraksFight(explorer, loracks);
+
+    return 0;
+}
 
 
 
-
-	looraksFight(explorer, loracks);
-
-
-} 
