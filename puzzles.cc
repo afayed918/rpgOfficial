@@ -114,27 +114,30 @@ void PuzzleGame::puzzles(int x){
 void PuzzleGame::finalGate() const{
 	clearscreen();
 	movecursor(15, 50);
-	cout << "The following letters are the the letters that you have collected throughout the game puzzles\n";
+	cout << "The following letters are the the letters that you have collected throughout the game puzzles" << endl;
 	for(int i = 0; i < inventory.size(); i++){
 		cout << inventory.at(i) << " ";
 	}
 	cout << endl;
-	cout << "Based on this letters can you guess the final phrase?(Write phrase in all caps)\n";
+	cout << "Based on these letters can you guess the final phrase?(Write phrase in all caps)" << endl;
+	cin.clear();
 	string input;
 	getline(cin, input);
 	if(input == "GUARDIAN TEMPLE"){
 		clearscreen();
 		movecursor(10, 50);
-		cout << CYAN << "GOOOD JOB!! YOU GOT THE CODE RIGHT!!\n";
-		clearscreen();
+		cout << CYAN << "GOOOD JOB!! YOU GOT THE CODE RIGHT!!" << endl;
 		string c = "THANK YOU FOR TUNING IN TO THE JUNGLE JOURNEY";
 		movecursor(15, 50);
-		for(char t: c){
-			cout << MAGENTA << c << flush;
-		}
+		cout << MAGENTA << c << flush;
+		cout << endl;
+		cout << WHITE << "Press Enter to continue..." << endl;
+		getline(cin, input);
 	} else{
-		cout << "UNFORTUNATELY YOU DID NOT GET THE CODE RIGHT, MAYBE NEXT TIME\n";
+		cout << "UNFORTUNATELY YOU DID NOT GET THE CODE RIGHT, MAYBE NEXT TIME" << endl;
 		return;
+		cout << "Press Enter to continue..." << endl;
+		getline(cin, input);
 	}
 }
 

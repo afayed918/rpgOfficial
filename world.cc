@@ -6,6 +6,7 @@
 #include "/public/colors.h"
 #include "/public/read.h"
 #include "puzzles.h"
+#include "combat.h"
 using namespace std;
 
 const int MAX_HEIGHT = 43;
@@ -21,7 +22,6 @@ const char GATE = '#';
 const int FPS = 60;
 int puzzleCounter = 1;
 PuzzleGame game;
-
 
 void smooth_map(vector<string> &map) {
 	vector<string> original = map;
@@ -137,6 +137,7 @@ void print_map(const vector<string> &map) {
 			else if (map.at(i).at(j) == ANIMAL) cout << RED << map.at(i).at(j) << map.at(i).at(j);
 			else if (map.at(i).at(j) == NPC) cout << CYAN << map.at(i).at(j) << map.at(i).at(j);
 			else if (map.at(i).at(j) == PLAYER ) cout << BOLDYELLOW  << map.at(i).at(j) << map.at(i).at(j);
+			else if (map.at(i).at(j) == GATE) cout << YELLOW << map.at(i).at(j) << map.at(i).at(j);
 			else cout << WHITE << map.at(i).at(j) << map.at(i).at(j);
 		}
 		if (i == map.size() - 1) cout << WHITE;
@@ -166,6 +167,24 @@ bool try_move_player(vector<string> &map, int& prow, int& pcol, char input, Puzz
 		getline(cin, temp);
 		clearscreen();
 		print_map(map);
+		set_raw_mode(true);
+	}
+	if (tile == ANIMAL) {
+		set_raw_mode(false);
+		clearscreen();
+		bool survived = startRandomCombat(explorer, tiger, snake, gorilla, monkey, loracks);
+		if (!survived) {
+			cout << " GAME OVER BUDDY " << endl;
+			exit(0);
+		}
+		set_raw_mode(true);
+		clearscreen();
+		print_map(map);
+	}
+	if (tile == GATE) {
+		set_raw_mode(false);
+		clearscreen();
+		game.finalGate();
 		set_raw_mode(true);
 	}
 	map.at(prow).at(pcol) = '.';
@@ -206,6 +225,9 @@ void run_world() {
 	smooth_map(map);
 	smooth_map(map);
 	place_events(map);
+	int gateRow = 10;
+	int gateCol = 10;
+	map.at(gateRow).at(gateCol) = GATE;
 	place_player(map, prow, pcol);
 	print_map(map);
 	set_raw_mode(true);
