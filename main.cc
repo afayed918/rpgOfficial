@@ -41,8 +41,7 @@ int main() {
 	for (char c : title) {
 		cout << c << flush;
 		usleep(150'000);
-	} 	
-	} 
+	} 	 
 	cout << endl;
 	cout << RESET;
 	string usName;
@@ -127,16 +126,7 @@ int main() {
 		cout << RESET;
 		clearscreen();
 		run_world();
-		vector<string> map(MAX_HEIGHT, "");
-		init_map(map);
-		print_map(map);
-		clearscreen();
 		PuzzleGame game;
-		game.puzzles(1);
-		game.puzzles(2);
-		game.finalGate();
-
-
 	}
 
 	else if (hpChoice == 2) {
