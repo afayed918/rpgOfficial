@@ -91,6 +91,11 @@ void hide_from_tiger(Explorer &explorer) {
     cout << endl;
 }
 
+void refreshBattle(Explorer &explorer, Beast &tiger){
+    	clearscreen();
+    	drawBattleScreen(explorer, tiger);
+	}
+
 
 
 void drawBattleScreen(const Explorer &explorer, const Beast &tiger) {
