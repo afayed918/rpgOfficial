@@ -93,7 +93,6 @@ int main() {
 		int startCol = col; // save the starting column
 
 		for (char c : begPuz) {
-
     	// Handle newline manually
     	if (c == '\n') {
         row++;          // next line
@@ -110,6 +109,10 @@ int main() {
 		}
 		
 		cout << endl;
+		cout << "Every fragment you seek was hidden for a reason.\n"
+			"Your journey will test more than your mind.\n"
+			"It will test your resolve.\n"
+			<< endl;
 		int toContinue = 0;
 		cout << RESET;
 		while(toContinue != 1) {

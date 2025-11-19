@@ -3,8 +3,7 @@ RPG-40 Assignment From CSCI-40
 
 Jacob Deel -> World Map Person
 Moyinoluwa Oyinleye -> puzzle
-Adam -> combat
-
+Nickolai Davidian -> Dialogue and Music 
 1.) we used variables to store the user input
 2.) we used algebra to randomize the map, so that the user gets an array of different maps
 3.) we used input and output to get the user's username and then display the username when the user enters the game
