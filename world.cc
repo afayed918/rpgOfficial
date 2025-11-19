@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <stdexcept>
+#include "/public/colors.h"
 using namespace std;
 
 const int MAX_HEIGHT = 43;
@@ -102,8 +103,14 @@ void init_map(vector<string> &map) {
 void print_map(const vector<string> &map) {
 	for (int i = 0; i < map.size(); i++) {
 		for (int j = 0; j < map.at(i).size(); j++){
-			cout << map.at(i).at(j) << map.at(i).at(j);
+			if (map.at(i).at(j) == TREE) cout << BOLDGREEN << map.at(i).at(j) << map.at(i).at(j);
+			else if (map.at(i).at(j) == HORI_WALL or map.at(i).at(j) == VERT_WALL) cout << MAGENTA << map.at(i).at(j) << map.at(i).at(j);
+			else if (map.at(i).at(j) == ANIMAL) cout << RED << map.at(i).at(j) << map.at(i).at(j);
+			else if (map.at(i).at(j) == NPC) cout << CYAN << map.at(i).at(j) << map.at(i).at(j);
+			else if (map.at(i).at(j) == PLAYER ) cout << BOLDYELLOW  << map.at(i).at(j) << map.at(i).at(j);
+			else cout << WHITE << map.at(i).at(j) << map.at(i).at(j);
 		}
+		if (i == map.size() - 1) cout << WHITE;
 		cout << endl;
 	}
 }
