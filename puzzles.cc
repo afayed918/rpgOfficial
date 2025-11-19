@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include "puzzles.h"
 #include "/public/colors.h"
+#include "world.h"
 using namespace std;
 
 void PuzzleGame::puzzles(int x){
@@ -12,12 +13,11 @@ void PuzzleGame::puzzles(int x){
 		cout << "For the puzzles you have to answer the riddles correctly, if you do you get a secrets letter that will help you unlock the final game!!!\n";
 		clearscreen();
 		movecursor(15, 50);
-		cout << "Puzzle 1: Guess the animal!! The alphabet goes from A to Z but I go from Z to A\n";
+		cout << "Puzzle 1: Guess the animal!! The alphabet goes from A to Z but I go from Z to A (answer in all lowercase)\n";
 		string answer;
-		cin.ignore();
 		getline(cin, answer);
 		if(answer == "zebra"){
-			cout << "Good job, Your first key is the letter " << RED << "E G\n";
+			cout << "Good job, Your first key is the letters " << RED << "E G" << endl;
 			inventory.push_back("E G");
 		} else{
 			cout << "Unfortunately you got the question wrong!!\nBetter luck next time!!\n";

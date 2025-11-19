@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include "/public/colors.h"
 #include "/public/read.h"
+#include "puzzles.h"
 using namespace std;
 
 const int MAX_HEIGHT = 43;
@@ -16,7 +17,10 @@ const char PLAYER = 'P';
 const char NPC = '%';
 const char ANIMAL = 'X';
 const char TREE = 'T';
+const char GATE = '#';
 const int FPS = 60;
+int puzzleCounter = 1;
+PuzzleGame game;
 
 
 void smooth_map(vector<string> &map) {
@@ -124,25 +128,6 @@ void place_player(vector<string>& map, int& prow, int& pcol) {
 	}
 }
 
-bool try_move_player(vector<string> &map, int& prow, int& pcol, char input) {
-	int nr = prow;
-	int nc = pcol;
-	if (input == 'w') nr--;
-	else if (input == 's') nr++;
-	else if (input == 'a') nc--;
-	else if (input == 'd') nc++;
-	else return false;
-	char tile = map.at(nr).at(nc);
-	if (tile == VERT_WALL || tile == HORI_WALL || tile == TREE) {
-		return false;
-	}
-	map.at(prow).at(pcol) = '.';
-	prow = nr;
-	pcol = nc;
-	map.at(prow).at(pcol) = PLAYER;
-	return true;
-}
-
 void print_map(const vector<string> &map) {
 	clearscreen();
 	for (int i = 0; i < map.size(); i++) {
@@ -159,6 +144,37 @@ void print_map(const vector<string> &map) {
 	}
 }
 
+bool try_move_player(vector<string> &map, int& prow, int& pcol, char input, PuzzleGame &game, int &puzzleCounter) {
+	int nr = prow;
+	int nc = pcol;
+	if (input == 'w') nr--;
+	else if (input == 's') nr++;
+	else if (input == 'a') nc--;
+	else if (input == 'd') nc++;
+	else return false;
+	char tile = map.at(nr).at(nc);
+	if (tile == VERT_WALL || tile == HORI_WALL || tile == TREE) {
+		return false;
+	}
+	if (tile == NPC) {
+		set_raw_mode(false);
+		clearscreen();
+		game.puzzles(puzzleCounter);
+		puzzleCounter++;
+		cout << "\nPress Enter to continue..." << endl;
+		string temp;
+		getline(cin, temp);
+		clearscreen();
+		print_map(map);
+		set_raw_mode(true);
+	}
+	map.at(prow).at(pcol) = '.';
+	prow = nr;
+	pcol = nc;
+	map.at(prow).at(pcol) = PLAYER;
+	return true;
+}
+
 void run_world_with_fps(vector<string>& map, int& prow, int& pcol) {
 	const int FRAME_DELAY_US = 1'000'000 / FPS;
 	int last_prow = -1;
@@ -171,7 +187,7 @@ void run_world_with_fps(vector<string>& map, int& prow, int& pcol) {
 		if (key == 'q') break;
 		bool moved = false;
 		if (key == 'w' || key == 'a' || key == 's' || key == 'd') {
-			moved = try_move_player(map, prow, pcol, key);
+			moved = try_move_player(map, prow, pcol, key, game, puzzleCounter);
 		}
 		if (moved || last_prow == -1) {
 			print_map(map);
